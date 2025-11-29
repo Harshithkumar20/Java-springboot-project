@@ -7,6 +7,14 @@ MYSQL_USERNAME=admin \
 MYSQL_PASSWORD=Cloud123 \
 nohup java -jar ./datastore-0.0.7.jar > /var/log/app/nohup.out 2>&1 &
 
+-------------------------------------------------------------------
+#or use this 
+export MYSQL_HOST="jdbc:mysql://database-1.cohqmc4eq1o5.us-east-1.rds.amazonaws.com:3306/datastore?createDatabaseIfNotExist=true"
+export MYSQL_USERNAME="admin"
+export MYSQL_PASSWORD="Cloud123"
+nohup java -jar datastore-0.0.7.jar > /var/log/app/nohup.out 2>&1 &
+---------------------------------------------
+
 
 
 ## sonanr qube webhook
