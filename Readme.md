@@ -1,6 +1,8 @@
 🚀 Full Stack Deployment: Spring Boot Backend + Streamlit Frontend (A–Z Guide)
 This guide explains the complete process to build, package, and deploy a Spring Boot backend and a Streamlit frontend on an EC2 instance. Includes: Maven build, running JAR, Python virtual environment, systemd service, and environment variables.
 
+
+
 📦 1. Build & Package the Spring Boot Backend
 connect the backend server
 
@@ -85,7 +87,7 @@ Paste:
 
 [Unit] Description=Streamlit Frontend App After=network.target
 
-[Service] User=root WorkingDirectory=/root ExecStart=/root/venv/bin/streamlit run app.py --server.port=8501 --server.address=0.0.0.0 Environment=API_URL=http://172.31.25.254:8084 Restart=always RestartSec=5  #update backend ip if used 
+[Service] User=root WorkingDirectory=/root ExecStart=/root/venv/bin/streamlit run app.py --server.port=8501 --server.address=0.0.0.0 Environment=API_URL=http:/13.221.57.204:8084 Restart=always RestartSec=5  #update backend ip if used 
 
 [Install] WantedBy=multi-user.target
 
@@ -103,7 +105,7 @@ Paste:
 
 [Unit] Description=Streamlit Frontend App After=network.target
 
-[Service] User=root WorkingDirectory=/root/Java-springboot-project/frontend ExecStart=/root/Java-springboot-project/frontend/venv/bin/python -m streamlit run /root/Java-springboot-project/frontend/app.py --server.port=8501 --server.address=0.0.0.0 Environment=API_URL=http://172.31.25.254:8084 Restart=always RestartSec=5
+[Service] User=root WorkingDirectory=/root/Java-springboot-project/frontend ExecStart=/root/Java-springboot-project/frontend/venv/bin/python -m streamlit run /root/Java-springboot-project/frontend/app.py --server.port=8501 --server.address=0.0.0.0 Environment=API_URL=http://13.221.57.204:8084 Restart=always RestartSec=5
 
 [Install] WantedBy=multi-user.target
 
